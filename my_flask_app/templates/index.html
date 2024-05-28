@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Gráfico</title>
+   <style>
+        #main
+        {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            background-color: rgb(48, 48, 146);
+            backdrop-filter: blur(3px);
+            border-radius: 7px;
+
+        }
+        #graf{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        body{
+            background-image: url("https://images.credly.com/images/ecea1113-fbd9-4f20-8d04-b956348da0cb/blob.png");
+            background-size: cover;
+        }
+   </style>
+</head>
+<body>
+    <header id="main">
+        <h1>Gerar Gráfico</h1>
+        <button id="btn-gerar-grafico">Gerar Gráfico</button>
+    </header>
+    <div id="graf">
+        <img id="grafico" src="" alt="Gráfico" style="display:none;"/>
+        <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    </div>
+</body>
+</html>
