@@ -1,0 +1,44 @@
+#main {
+    background-color: #34495e; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+#main h1 {
+    margin: 0; /* Remover margem padrão */
+    font-size: 32px; /* Tamanho da fonte */
+}
+
+.graph-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.graph {
+    display: none;
+}
+
+body {
+    background-image: url("https://images.credly.com/images/ecea1113-fbd9-4f20-8d04-b956348da0cb/blob.png");
+    background-size: cover;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
