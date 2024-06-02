@@ -42,3 +42,27 @@ button:hover {
     background-color: #45a049;
 }
 
+#info-panel {
+    position: fixed;
+    top: 100px; /* Ajuste conforme necessário para a posição vertical */
+    right: 12px; /* Ajuste conforme necessário para a posição horizontal */
+    width: 300px; /* Ajuste conforme necessário para a largura */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#info-panel p {
+    font-size: 20px;
+    justify-content: center;
+}
+
+
+.online {
+    color: green;
+}
+
+.offline {
+    color: red;
+}

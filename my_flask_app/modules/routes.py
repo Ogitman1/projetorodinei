@@ -1,11 +1,10 @@
 from flask import Blueprint, render_template, jsonify, current_app
-from modules.database import conectar
+from modules.database import conectar, verificar_status_banco_dados
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 import io
 import base64
 from modules.database import conectar
-import threading
 
 routes_blueprint = Blueprint('routes', __name__)
 
@@ -76,8 +75,7 @@ def plotar_grafico():
         plt.xticks(total, nota_nome)    
         ax.set_ylabel('Número de respostas')                                           #titulo do eixo y
         ax.set_xticks(total)
-        #ax.set_xticklabels(['15', '20', '40', 'S4', '41'])                                           #aqui é substituido os numeros do eixo x pelos nomes contidos em "nota_nome"
-        #plt.xlim(0.5, 5.5)                                                          #limita o grafico entre 1 e 5
+
         img = io.BytesIO()
         plt.savefig(img, format='jpg')
         plt.close()
@@ -108,5 +106,11 @@ def gerar_grafico_notas():
         print(f"Error generating graph: {e}")
         return jsonify(success=False)
 
-thread = threading.Thread(target=gerar_grafico_notas)
-thread.start()
+@routes_blueprint.route('/status-banco-dados', methods=['GET'])
+def verificar_status_servidor():
+    try:
+        status_banco_dados = verificar_status_banco_dados()
+        return jsonify(success=True, status_banco_dados=status_banco_dados), 200
+    except Exception as e:
+        print(f"Erro ao verificar status do banco de dados: {e}")
+        return jsonify(success=False), 500

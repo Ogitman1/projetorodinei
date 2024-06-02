@@ -36,3 +36,32 @@ document.getElementById('btn-gerar-grafico-satisfacao').addEventListener('click'
             alert('Ocorreu um erro ao gerar o gráfico de satisfação.');
         });
 });
+
+function verificarStatusBancoDados() {
+    fetch('/status-banco-dados')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const statusBancoDadosElement = document.getElementById('status-banco-dados');
+                statusBancoDadosElement.textContent = data.status_banco_dados;
+                
+                
+                if (data.status_banco_dados === 'Online') {
+                    statusBancoDadosElement.classList.remove('offline');
+                    statusBancoDadosElement.classList.add('online');
+                } else {
+                    statusBancoDadosElement.classList.remove('online');
+                    statusBancoDadosElement.classList.add('offline');
+                }
+                
+            } else {
+                console.error('Erro ao verificar status do banco de dados.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao verificar status do banco de dados:', error);
+        });
+}
+
+// Chamar a função para verificar o status do banco de dados quando a página for carregada
+window.onload = verificarStatusBancoDados;
