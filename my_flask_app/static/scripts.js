@@ -1,18 +1,26 @@
 document.getElementById('btn-gerar-grafico-notas').addEventListener('click', function() {
+    document.getElementById('loading-screen').style.display = 'flex'
     fetch('/grafalunos', { method: 'POST' })
         .then(response => response.json())
         .then(data => {
+            document.getElementById('loading-screen').style.display = 'none'
             if (data.success) {
                 document.getElementById('grafico-notas').src = data.graph_url;
                 document.getElementById('grafico-container-notas').style.display = 'block';
+                document.getElementById('popup').style.display = 'block'
                 alert('Gráfico de notas gerado com sucesso!')
             } else {
                 alert('Ocorreu um erro ao gerar o gráfico de notas.');
+                document.getElementById('loading-screen').style.display = 'none'
             }
+            setTimeout( function(){
+                document.getElementById('popup').style.display = 'none'
+            },3000)
         })
         .catch(error => {
             console.error('Erro ao gerar o gráfico de notas:', error);
             alert('Ocorreu um erro ao gerar o gráfico de notas.');
+            document.getElementById('loading-screen').style.display = 'none'
         });
 });
 
@@ -20,20 +28,28 @@ document.getElementById('btn-gerar-grafico-notas').addEventListener('click', fun
 
 
 document.getElementById('btn-gerar-grafico-satisfacao').addEventListener('click', function() {
+    document.getElementById('loading-screen').style.display = 'flex'
     fetch('/grafnotas', { method: 'POST' })
         .then(response => response.json())
         .then(data => {
+            document.getElementById('loading-screen').style.display = 'none'
             if (data.success) {
                 document.getElementById('grafico-satisfacao').src = data.graph_url;
                 document.getElementById('grafico-container-satisfacao').style.display = 'block';
+                document.getElementById('popup').style.display = 'block'
                 alert('Gráfico de satisfação gerado com sucesso!');
             } else {
                 alert('Ocorreu um erro ao gerar o gráfico de satisfação.');
+                document.getElementById('loading-screen').style.display = 'none'
             }
+            setTimeout( function(){
+                document.getElementById('popup').style.display = 'none'
+            },3000)
         })
         .catch(error => {
             console.error('Erro ao gerar o gráfico de satisfação:', error);
             alert('Ocorreu um erro ao gerar o gráfico de satisfação.');
+            document.getElementById('loading-screen').style.display = 'none'
         });
 });
 
