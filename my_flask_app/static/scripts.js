@@ -7,13 +7,13 @@ document.getElementById('btn-gerar-grafico-notas').addEventListener('click', fun
             if (data.success) {
                 document.getElementById('grafico-notas').src = data.graph_url;
                 document.getElementById('grafico-container-notas').style.display = 'block';
-                document.getElementById('popup').style.display = 'block'
+                document.getElementById('popup').style.display = 'flex' //aparecer o popup
                 alert('Gráfico de notas gerado com sucesso!')
             } else {
                 alert('Ocorreu um erro ao gerar o gráfico de notas.');
                 document.getElementById('loading-screen').style.display = 'none'
             }
-            setTimeout( function(){
+            setTimeout( function(){ //popup some depois de 3 segundos
                 document.getElementById('popup').style.display = 'none'
             },3000)
         })
@@ -36,13 +36,13 @@ document.getElementById('btn-gerar-grafico-satisfacao').addEventListener('click'
             if (data.success) {
                 document.getElementById('grafico-satisfacao').src = data.graph_url;
                 document.getElementById('grafico-container-satisfacao').style.display = 'block';
-                document.getElementById('popup').style.display = 'block'
+                document.getElementById('popup').style.display = 'flex' //aparecer o popup
                 alert('Gráfico de satisfação gerado com sucesso!');
             } else {
                 alert('Ocorreu um erro ao gerar o gráfico de satisfação.');
                 document.getElementById('loading-screen').style.display = 'none'
             }
-            setTimeout( function(){
+            setTimeout( function(){ //popup some depois de 3 segundos
                 document.getElementById('popup').style.display = 'none'
             },3000)
         })
@@ -53,7 +53,7 @@ document.getElementById('btn-gerar-grafico-satisfacao').addEventListener('click'
         });
 });
 
-function verificarStatusBancoDados() {
+function verificarStatusBancoDados() { //código de verificação dos status do servidor/banco de dados
     fetch('/status-banco-dados')
         .then(response => response.json())
         .then(data => {

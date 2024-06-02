@@ -9,12 +9,13 @@
 </head>
 <body>
     <header id="main">
-        <h1>Gerar Gráfico</h1>
+        <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 300;
+        letter-spacing: 1px;">Geração de gráfico do banco de dados da ITALO</h1>
     </header>
-    <div id="loading-screen">
+    <div id="loading-screen"><!-- div para a animação do símbolo de carregamento do loading-->
         <div class="loader"></div>
     </div>
-    <div id="info-panel">
+    <div id="info-panel"> <!--Painel do banco de dados/servidor-->
         <h2>Informações do Servidor</h2>
         <p><strong>Host:</strong> italo.mysql.uhserver.com</p>
         <p><strong>Database:</strong> italo</p>
@@ -23,14 +24,14 @@
         <!-- Adicione mais informações conforme necessário -->
     </div>
 
-    <div class="graph-container">
+    <div class="graph-container"><!-- div exibição do gráfico de notas-->
         <button id="btn-gerar-grafico-notas">Gerar Gráfico de Notas</button>
         <div id="grafico-container-notas" class="graph1">
             <img class="bc" id="grafico-notas" src="" alt="Gráfico de Notas"/>
         </div>
     </div>
 
-    <div class="graph-container">
+    <div class="graph-container"><!-- div exibição do gráfico de barras-->
         <button id="btn-gerar-grafico-satisfacao">Gerar Gráfico de Satisfação</button>
         <div id="grafico-container-satisfacao" class="graph2">
             <img class="bc" id="grafico-satisfacao" src="" alt="Gráfico de Satisfação"/>
@@ -39,7 +40,7 @@
         
     </div>
 
-    <div id="popup">
+    <div id="popup"><!--div exibição da janela popup-->
             <img>
         </img>
         <p style="font-size: 18px; font-weight: bold; text-align: center;">Deu certo! Bom trabalho!</p>
